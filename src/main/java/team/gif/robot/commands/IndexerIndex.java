@@ -1,33 +1,35 @@
-package team.gif.robot.commands.drivetrain;
+package team.gif.robot.commands;
+
 import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.Robot;
 
-public class Reset180 extends Command {
-
-    public Reset180() {}
+public class IndexerIndex extends Command {
+    public double out;
+    public IndexerIndex(double out) {
+        super();
+        addRequirements(Robot.indexer); // uncomment
+        this.out = out;
+    }
 
     // Called when the command is initially scheduled.
     @Override
-    public void initialize() {
-        Robot.pigeon.resetPigeonPosition(180);
-    }
+    public void initialize() {}
 
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
-    public void execute() {}
+    public void execute() {
+        Robot.indexer.setPercent(out);
+    }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
     @Override
     public boolean isFinished() {
-        return true;
+        return false;
     }
 
     // Called when the command ends or is interrupted.
     @Override
-    public void end(boolean interrupted) {}
-
-    @Override
-    public boolean runsWhenDisabled() {
-        return true;
+    public void end(boolean interrupted) {
+        Robot.indexer.stop();
     }
 }

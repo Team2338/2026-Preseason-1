@@ -7,13 +7,9 @@ package team.gif.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import team.gif.robot.commands.drivetrain.DriveSwerve;
+import team.gif.robot.subsystems.Collector;
+import team.gif.robot.subsystems.Indexer;
 import team.gif.robot.subsystems.drivers.Pigeon2_0;
-import team.gif.robot.subsystems.drivers.swerve.utilities.SwerveConfiguration;
-import team.gif.robot.subsystems.drivers.swerve.SwerveDrivetrain;
-import team.gif.robot.subsystems.drivers.swerve.TalonFXDriveMotor;
-import team.gif.robot.subsystems.drivers.swerve.TalonFXTurnMotor;
-import team.gif.robot.subsystems.drivers.swerve.CANCoderEncoder;
 
 
 /**
@@ -28,9 +24,9 @@ public class Robot extends TimedRobot {
     public static OI oi;
 
     public static Pigeon2_0 pigeon;
+    public static Indexer indexer;
+    public static Collector collector;
 
-    public static SwerveConfiguration swerveConfig;
-    public static SwerveDrivetrain swerveDrive;
 
     public static UI ui;
 
@@ -48,13 +44,9 @@ public class Robot extends TimedRobot {
         robotContainer = new RobotContainer();
 
         pigeon = new Pigeon2_0(RobotMap.PIGEON_ID);
+        collector = new Collector(RobotMap.COLLECTOR_ID);
+        indexer = new Indexer(RobotMap.INDEXER_ID);
 
-        swerveConfig = new SwerveConfiguration(new RobotMap.Mk4Map(), new Constants.Mk4Constants(), TalonFXDriveMotor::new, TalonFXTurnMotor::new, CANCoderEncoder::new);
-//        swerveConfig = new SwerveConfiguration(new RobotMap.Mk3Map(), new Constants.Mk3Constants(), SparkMaxDriveMotor::new, TalonSRXTurnMotorEncoder::new, null);
-        swerveDrive = new SwerveDrivetrain(swerveConfig);
-        swerveDrive.setDefaultCommand(new DriveSwerve());
-        swerveDrive.enableDebugMode();
-//        swerveDrive.addLimelight("limelight-front");
 
         //These should be at or near the bottom
         oi = new OI();
