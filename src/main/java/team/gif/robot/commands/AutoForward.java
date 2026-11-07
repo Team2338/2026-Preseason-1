@@ -3,11 +3,11 @@ package team.gif.robot.commands;
 import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.Robot;
 
-public class AutoForwardSeconds extends Command {
+public class AutoForward extends Command {
     private double counter;
     double output;
     int time;
-    public AutoForwardSeconds(double output, int time) {
+    public AutoForward(double output, int time) {
         super();
         addRequirements(Robot.arcade); // uncomment
         this.output = output;

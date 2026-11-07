@@ -7,9 +7,12 @@ package team.gif.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import team.gif.robot.commands.ArcadeDriveTrain;
+import team.gif.robot.subsystems.ArcadeDrive;
 import team.gif.robot.subsystems.Collector;
 import team.gif.robot.subsystems.Indexer;
 import team.gif.robot.subsystems.drivers.Pigeon2_0;
+import team.gif.robot.subsystems.drivers.Shooter;
 
 
 /**
@@ -22,17 +25,18 @@ public class Robot extends TimedRobot {
     private static Command autonomousCommand;
     private RobotContainer robotContainer;
     public static OI oi;
+    private final CommandScheduler commandScheduler = CommandScheduler.getInstance();
+
 
     public static Pigeon2_0 pigeon;
     public static Indexer indexer;
     public static Collector collector;
+    public static Shooter shooter;
 
     public static ArcadeDrive arcade;
 
     public static UI ui;
 
-    public static final boolean enableSwerveDebug = true;
-    public static final boolean fullDashboard = true;
 
 
     /**
@@ -47,6 +51,7 @@ public class Robot extends TimedRobot {
         pigeon = new Pigeon2_0(RobotMap.PIGEON_ID);
         indexer = new Indexer(RobotMap.INDEXER_ID);
         collector = new Collector(RobotMap.COLLECTOR_ID);
+        shooter = new Shooter(RobotMap.SHOOTER_ID);
         arcade = new ArcadeDrive();
         arcade.setDefaultCommand(new ArcadeDriveTrain());
 
@@ -85,11 +90,22 @@ public class Robot extends TimedRobot {
 
     /** This autonomous runs the autonomous command selected by your {@link RobotContainer} class. */
     @Override
-    public void autonomousInit() {}
+    public void autonomousInit() {
+        autonomousCommand = robotContainer.getAutonamousCommand();
+
+        if(autonomousCommand != null)
+        {
+            commandScheduler.schedule(autonomousCommand);
+        }
+    }
 
     /** This function is called periodically during autonomous. */
     @Override
-    public void autonomousPeriodic() {}
+    public void autonomousPeriodic() {
+        if (autonomousCommand != null) {
+            commandScheduler.schedule(autonomousCommand);
+        }
+    }
 
     @Override
     public void teleopInit() {
