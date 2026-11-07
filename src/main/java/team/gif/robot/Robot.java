@@ -7,8 +7,8 @@ package team.gif.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import team.gif.robot.commands.ArcadeDriveTrain;
-import team.gif.robot.subsystems.ArcadeDrive;
+import team.gif.robot.subsystems.Collector;
+import team.gif.robot.subsystems.Indexer;
 import team.gif.robot.subsystems.drivers.Pigeon2_0;
 
 
@@ -24,6 +24,8 @@ public class Robot extends TimedRobot {
     public static OI oi;
 
     public static Pigeon2_0 pigeon;
+    public static Indexer indexer;
+    public static Collector collector;
 
     public static ArcadeDrive arcade;
 
@@ -43,6 +45,8 @@ public class Robot extends TimedRobot {
         robotContainer = new RobotContainer();
 
         pigeon = new Pigeon2_0(RobotMap.PIGEON_ID);
+        indexer = new Indexer(RobotMap.INDEXER_ID);
+        collector = new Collector(RobotMap.COLLECTOR_ID);
         arcade = new ArcadeDrive();
         arcade.setDefaultCommand(new ArcadeDriveTrain());
 

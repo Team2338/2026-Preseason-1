@@ -3,6 +3,9 @@ package team.gif.robot;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import team.gif.robot.commands.CollectorCollect;
+import team.gif.robot.commands.IndexerIndex;
+
 public class OI {
     /*
      * Instantiate all joysticks/controllers and their buttons here
@@ -90,6 +93,6 @@ public class OI {
          */
 
 
-
+        aA.whileTrue(new IndexerIndex(0.5).alongWith(new CollectorCollect(0.5)));
     }
 }
