@@ -10,7 +10,7 @@ public class AutosGroup extends ParallelDeadlineGroup {
         super(new WaitCommand(4.0)); // max amount of time to run
         addCommands(
             new AutoForward(0.5, 50), //time is in milliseconds, every 50 is 1 seconds
-                new AutoShoot(0.5, 50)
+                new WaitCommand(1).andThen(new AutoShoot(0.5, 50))
         );
     }
 
