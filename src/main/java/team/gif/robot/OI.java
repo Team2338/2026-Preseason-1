@@ -93,6 +93,7 @@ public class OI {
          */
 
 
-        aA.whileTrue(new IndexerIndex(0.5).alongWith(new CollectorCollect(0.5)));
+        aA.whileTrue(new IndexerIndex(Constants.INDEXER_COLLECTOR_POWER).alongWith(new CollectorCollect(Constants.INDEXER_COLLECTOR_POWER)));
+        aB.whileTrue(new IndexerIndex(Constants.INDEXER_COLLECTOR_POWER_FAST).alongWith(new CollectorCollect(Constants.INDEXER_COLLECTOR_POWER_FAST)));
     }
 }
