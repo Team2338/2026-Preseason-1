@@ -7,6 +7,7 @@ public class AutoForward extends Command {
     private double counter;
     double output;
     int time;
+
     public AutoForward(double output, int time) {
         super();
         addRequirements(Robot.arcade); // uncomment
@@ -23,7 +24,7 @@ public class AutoForward extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        counter += 1;
+        counter++;
         Robot.arcade.arcadeDrive(output, 0);
     }
 

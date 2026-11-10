@@ -18,7 +18,13 @@ import edu.wpi.first.math.system.plant.DCMotor;
 public final class Constants {
     public static final double DEBOUNCE_DEFAULT = 0.020;
 
-    //These constants should be referenced via Robot.swerveDrive.getConstants();
+    public static double RUN_TIME_SECONDS = 4;
+
+    public static double INDEXER_COLLECTOR_POWER = 0.5;
+    public static double INDEXER_COLLECTOR_POWER_FAST = 0.75;
+
+    public static double DRIVETRAIN_FORWARD_POWER = 0.5;
+    public static int DRIVETRAIN_ONE_SECOND = 50;
 
     public static final class Joystick {
         public static final double DEADBAND = 0.1;

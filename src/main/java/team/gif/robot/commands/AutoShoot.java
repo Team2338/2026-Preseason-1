@@ -23,7 +23,7 @@ public class AutoShoot extends Command {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        counter += 1;
+        counter++;
         Robot.shooter.setPercent(output);
     }
 

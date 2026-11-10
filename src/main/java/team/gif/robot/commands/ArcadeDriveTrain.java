@@ -19,7 +19,6 @@ public class ArcadeDriveTrain extends Command {
         double speed = Robot.oi.driver.getLeftY();
         double rotation = Robot.oi.driver.getRightX();
         Robot.arcade.arcadeDrive(speed, rotation);
-
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.

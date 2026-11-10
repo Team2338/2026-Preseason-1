@@ -8,6 +8,7 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import team.gif.robot.RobotMap;
 
 public class ArcadeDrive extends SubsystemBase {
     /** Creates a new ExampleSubsystem. */
@@ -16,10 +17,10 @@ public class ArcadeDrive extends SubsystemBase {
     public DifferentialDrive differentialDrive;
 
     public ArcadeDrive() {
-        leftTalon = new WPI_TalonSRX(1);
-        rightTalon = new WPI_TalonSRX(2);
-        differentialDrive = new DifferentialDrive(leftTalon, rightTalon);
+        leftTalon = new WPI_TalonSRX(RobotMap.LEFT_TALON_DRIVETRAIN);
+        rightTalon = new WPI_TalonSRX(RobotMap.RIGHT_TALON_DRIVETRAIN);
 
+        differentialDrive = new DifferentialDrive(leftTalon, rightTalon);
 
         leftTalon.configFactoryDefault();
         rightTalon.configFactoryDefault();

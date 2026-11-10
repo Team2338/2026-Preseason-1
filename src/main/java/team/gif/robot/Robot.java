@@ -48,7 +48,6 @@ public class Robot extends TimedRobot {
         // autonomous chooser on the dashboard.
         robotContainer = new RobotContainer();
 
-        pigeon = new Pigeon2_0(RobotMap.PIGEON_ID);
         indexer = new Indexer(RobotMap.INDEXER_ID);
         collector = new Collector(RobotMap.COLLECTOR_ID);
         shooter = new Shooter(RobotMap.SHOOTER_ID);
