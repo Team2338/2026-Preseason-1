@@ -10,7 +10,7 @@ public class AutoForward extends Command {
 
     public AutoForward(double output, int time) {
         super();
-        addRequirements(Robot.arcade); // uncomment
+        addRequirements(Robot.driveTrain); // uncomment
         this.output = output;
         this.time = time;
     }
@@ -25,7 +25,7 @@ public class AutoForward extends Command {
     @Override
     public void execute() {
         counter++;
-        Robot.arcade.arcadeDrive(output, 0);
+        Robot.driveTrain.arcadeDrive(output, 0);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
@@ -37,7 +37,7 @@ public class AutoForward extends Command {
     // Called when the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
-        Robot.arcade.arcadeDrive(0, 0);
+        Robot.driveTrain.arcadeDrive(0, 0);
 
     }
 }

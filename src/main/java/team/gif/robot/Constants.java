@@ -4,9 +4,6 @@
 
 package team.gif.robot;
 
-import edu.wpi.first.math.controller.SimpleMotorFeedforward;
-import edu.wpi.first.math.system.plant.DCMotor;
-
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
  * constants. This class should not be used for any other purpose. All constants should be declared
@@ -20,8 +17,12 @@ public final class Constants {
 
     public static double RUN_TIME_SECONDS = 4;
 
-    public static double INDEXER_COLLECTOR_POWER = 0.5;
-    public static double INDEXER_COLLECTOR_POWER_FAST = 0.75;
+    public static double COLLECTOR_PERCENT = 0.2; //0.5;
+    public static double INDEXER_PERCENT = 0.2; //-0.85;
+    public static double COLLECTOR_FAST_PERCENT = 0.2; //0.5;
+    public static double INDEXER_FAST_PERCENT = 0.2;
+    public static double COLLECTOR_SHOOT_PERCENT = 0.95; //0.5;
+    public static double INDEXER_SHOOT_PERCENT = 0.99; //-0.85;
 
     public static double DRIVETRAIN_FORWARD_POWER = 0.5;
     public static int DRIVETRAIN_ONE_SECOND = 50;

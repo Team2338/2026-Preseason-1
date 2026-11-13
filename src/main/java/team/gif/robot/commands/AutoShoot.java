@@ -9,7 +9,7 @@ public class AutoShoot extends Command {
     int time;
     public AutoShoot(double output, int time) {
         super();
-        addRequirements(Robot.arcade); // uncomment
+        addRequirements(Robot.driveTrain); // uncomment
         this.output = output;
         this.time = time;
     }
@@ -37,6 +37,5 @@ public class AutoShoot extends Command {
     @Override
     public void end(boolean interrupted) {
         Robot.shooter.stop();
-
     }
 }

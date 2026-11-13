@@ -6,7 +6,7 @@ import team.gif.robot.Robot;
 public class ArcadeDriveTrain extends Command {
     public ArcadeDriveTrain() {
         super();
-        addRequirements(Robot.arcade); // uncomment
+        addRequirements(Robot.driveTrain); // uncomment
     }
 
     // Called when the command is initially scheduled.
@@ -18,7 +18,8 @@ public class ArcadeDriveTrain extends Command {
     public void execute() {
         double speed = Robot.oi.driver.getLeftY();
         double rotation = Robot.oi.driver.getRightX();
-        Robot.arcade.arcadeDrive(speed, rotation);
+        rotation=Math.abs(rotation)*rotation;
+        Robot.driveTrain.arcadeDrive(speed, rotation);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.

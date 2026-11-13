@@ -3,8 +3,8 @@ package team.gif.robot;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-import team.gif.robot.commands.CollectorCollect;
-import team.gif.robot.commands.IndexerIndex;
+import team.gif.robot.commands.CollectorRun;
+import team.gif.robot.commands.IndexerRun;
 
 public class OI {
     /*
@@ -88,12 +88,20 @@ public class OI {
          * whileTrue (fka whenHeld)    Init->Execute repeats until IsFinished = true or button released->End, will not start again at Init if still held down
          * whileTrue(new RepeatCommand()) (fka whileHeld)   Init->Execute repeats until IsFinished = true or button released->End, will start again at Init if still held down
          *
-         * Simple Test:
+         * Simpl
+         * e Test:
          *   aX.onTrue(new PrintCommand("aX"));
          */
 
-
-        aA.whileTrue(new IndexerIndex(Constants.INDEXER_COLLECTOR_POWER).alongWith(new CollectorCollect(Constants.INDEXER_COLLECTOR_POWER)));
-        aB.whileTrue(new IndexerIndex(Constants.INDEXER_COLLECTOR_POWER_FAST).alongWith(new CollectorCollect(Constants.INDEXER_COLLECTOR_POWER_FAST)));
+        //test if the indexer or collector is negative
+        //bring it back
+        aRTrigger.whileTrue(new IndexerRun(Constants.INDEXER_PERCENT).alongWith(new CollectorRun(-Constants.COLLECTOR_PERCENT)));
+        //Collect
+        aLTrigger.whileTrue(new IndexerRun(-Constants.INDEXER_PERCENT).alongWith(new CollectorRun(Constants.COLLECTOR_PERCENT)));
+        //Shoot run indexer
+        aLBump.whileTrue(new IndexerRun(Constants.INDEXER_SHOOT_PERCENT));
+        //shoot run collector
+        aRBump.whileTrue(new CollectorRun(-Constants.COLLECTOR_SHOOT_PERCENT));
+        //test if the shooter needs inversions
     }
 }

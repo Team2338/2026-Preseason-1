@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import team.gif.robot.commands.ArcadeDriveTrain;
-import team.gif.robot.subsystems.ArcadeDrive;
+import team.gif.robot.subsystems.DriveTrain;
 import team.gif.robot.subsystems.Collector;
 import team.gif.robot.subsystems.Indexer;
 import team.gif.robot.subsystems.drivers.Pigeon2_0;
@@ -29,11 +29,14 @@ public class Robot extends TimedRobot {
 
 
     public static Pigeon2_0 pigeon;
+
+    //public static Shoot shoot;
+
     public static Indexer indexer;
     public static Collector collector;
     public static Shooter shooter;
 
-    public static ArcadeDrive arcade;
+    public static DriveTrain driveTrain;
 
     public static UI ui;
 
@@ -50,9 +53,11 @@ public class Robot extends TimedRobot {
 
         indexer = new Indexer(RobotMap.INDEXER_ID);
         collector = new Collector(RobotMap.COLLECTOR_ID);
-        shooter = new Shooter(RobotMap.SHOOTER_ID);
-        arcade = new ArcadeDrive();
-        arcade.setDefaultCommand(new ArcadeDriveTrain());
+//        shooter = new Shooter(RobotMap.SHOOTER_ID);
+
+        //shoot = new Shoot();
+        driveTrain = new DriveTrain();
+        driveTrain.setDefaultCommand(new ArcadeDriveTrain());
 
 
         //These should be at or near the bottom
